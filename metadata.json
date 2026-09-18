@@ -1,0 +1,6 @@
+{
+  "name": "DataArtisan",
+  "description": "DataArtisan — Quantitative analytics, algorithmic governance, and executive decision telemetry for sovereign infrastructure and private capital.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
