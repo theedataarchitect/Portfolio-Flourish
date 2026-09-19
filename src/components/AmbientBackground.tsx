@@ -448,22 +448,16 @@ export const AmbientBackground: React.FC<AmbientBackgroundProps> = ({ theme }) =
       aria-hidden="true"
       className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden"
     >
-      {/* WebGL Subsea Telemetry Canvas */}
+      {/* WebGL Subsea Telemetry Canvas - Boosted clarity and motion visibility */}
       <canvas
         ref={canvasRef}
         id="shader-canvas-ANIMATION_31"
-        className={`fixed inset-0 w-full h-full block transition-opacity duration-700 ${
-          isDark ? 'opacity-100' : 'opacity-35 mix-blend-multiply'
-        }`}
+        className="fixed inset-0 w-full h-full block opacity-95 dark:opacity-100 transition-opacity duration-500"
       />
 
-      {/* Subtle Atmospheric Depth Overlay (Ensures High Contrast & Legibility) */}
+      {/* Atmospheric cream-grey tint overlay with dynamic opacity between light and dark modes */}
       <div
-        className={`absolute inset-0 pointer-events-none transition-colors duration-500 ${
-          isDark
-            ? 'bg-radial-[ellipse_at_center,_transparent_45%,_rgba(3,7,18,0.7)_100%]'
-            : 'bg-radial-[ellipse_at_center,_transparent_50%,_rgba(248,250,252,0.85)_100%]'
-        }`}
+        className="absolute inset-0 pointer-events-none bg-[#ebe8e2]/15 dark:bg-slate-950/45 transition-all duration-500"
       />
     </div>
   );

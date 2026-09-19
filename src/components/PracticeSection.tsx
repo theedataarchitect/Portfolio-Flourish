@@ -63,7 +63,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({ onOpenInquiryF
   return (
     <section
       id="core-practice"
-      className="py-20 lg:py-28 bg-slate-50/70 dark:bg-slate-900/60 backdrop-blur-xs border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200"
+      className="py-20 lg:py-28 bg-slate-50/20 dark:bg-slate-950/30 backdrop-blur-2xs border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

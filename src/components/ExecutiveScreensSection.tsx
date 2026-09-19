@@ -21,6 +21,7 @@ import {
   CheckCircle2,
   Sparkles
 } from 'lucide-react';
+import { ZoomFade } from './ZoomFade';
 
 interface ExecutiveScreensSectionProps {
   onSelectWork: (work: PortfolioWork) => void;
@@ -48,72 +49,84 @@ export const ExecutiveScreensSection: React.FC<ExecutiveScreensSectionProps> = (
   };
 
   return (
-    <section id="executive-screens" className="py-20 lg:py-24 bg-slate-50/70 dark:bg-slate-950/70 backdrop-blur-xs border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section id="executive-screens" className="py-20 lg:py-24 bg-slate-50/20 dark:bg-slate-950/30 backdrop-blur-2xs border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Sizable portion dedicated to section header & controls */}
           <div className="lg:col-span-4 lg:sticky lg:top-28">
-            <div className="font-mono text-xs uppercase tracking-widest text-rose-600 dark:text-rose-400 font-semibold mb-2 flex items-center gap-2">
-              <span>// EXECUTIVE SCREENS</span>
-            </div>
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 dark:text-white tracking-tight leading-tight mb-4">
-              Interactive Executive Briefing
-            </h2>
+            <ZoomFade fadeType="zoom-fade-left" duration={0.75}>
+              <div className="font-mono text-xs uppercase tracking-widest text-rose-600 dark:text-rose-400 font-semibold mb-2 flex items-center gap-2">
+                <span>// EXECUTIVE SCREENS</span>
+              </div>
+            </ZoomFade>
 
-            <p className="font-mono text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider leading-relaxed mb-6">
-              SELECTIVE CLIENT-REPRESENTATIVE TELEMETRY, DILIGENCE ARTIFACTS, AND INTERACTIVE DOSSIER SURFACES.
-            </p>
+            <ZoomFade fadeType="zoom-fade-in" delay={0.1} duration={0.75}>
+              <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 dark:text-white tracking-tight leading-tight mb-4">
+                Interactive Executive Briefing
+              </h2>
+            </ZoomFade>
+
+            <ZoomFade fadeType="zoom-fade-right" delay={0.15} duration={0.75}>
+              <p className="font-mono text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider leading-relaxed mb-6">
+                SELECTIVE CLIENT-REPRESENTATIVE TELEMETRY, DILIGENCE ARTIFACTS, AND INTERACTIVE DOSSIER SURFACES.
+              </p>
+            </ZoomFade>
 
             {/* Pagination controls in Left Column */}
-            <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-2xs mb-6">
-              <span className="font-mono text-xs text-slate-600 dark:text-slate-300 font-medium">
-                Screen {activeScreenIndex + 1} of {EXECUTIVE_SCREENS.length}
-              </span>
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={handlePrev}
-                  aria-label="Previous screen"
-                  className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-xs cursor-pointer"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  aria-label="Next screen"
-                  className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-xs cursor-pointer"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+            <ZoomFade fadeType="zoom-fade-down" delay={0.2} duration={0.75}>
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-2xs mb-6">
+                <span className="font-mono text-xs text-slate-600 dark:text-slate-300 font-medium">
+                  Screen {activeScreenIndex + 1} of {EXECUTIVE_SCREENS.length}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={handlePrev}
+                    aria-label="Previous screen"
+                    className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-xs cursor-pointer"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    aria-label="Next screen"
+                    className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-xs cursor-pointer"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
-            </div>
+            </ZoomFade>
 
             {/* Vertical Screen Selector Pills */}
-            <div className="space-y-1.5">
-              {EXECUTIVE_SCREENS.map((screen, idx) => {
-                const isActive = idx === activeScreenIndex;
-                return (
-                  <button
-                    key={screen.id}
-                    onClick={() => handleSelectScreen(idx)}
-                    className={`w-full text-left px-3.5 py-2 rounded-xl font-mono text-xs uppercase tracking-wider transition-all flex items-center justify-between border cursor-pointer ${
-                      isActive
-                        ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 border-transparent shadow-xs font-semibold'
-                        : 'bg-white/80 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
-                    }`}
-                  >
-                    <span className="truncate">{screen.label}</span>
-                    <span className={`text-[10px] ${isActive ? 'text-rose-400 dark:text-rose-600' : 'text-slate-400'}`}>
-                      0{idx + 1}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+            <ZoomFade fadeType="zoom-fade-diagonal-left" delay={0.25} duration={0.75}>
+              <div className="space-y-1.5">
+                {EXECUTIVE_SCREENS.map((screen, idx) => {
+                  const isActive = idx === activeScreenIndex;
+                  return (
+                    <button
+                      key={screen.id}
+                      onClick={() => handleSelectScreen(idx)}
+                      className={`w-full text-left px-3.5 py-2 rounded-xl font-mono text-xs uppercase tracking-wider transition-all flex items-center justify-between border cursor-pointer ${
+                        isActive
+                          ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 border-transparent shadow-xs font-semibold'
+                          : 'bg-white/80 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                      }`}
+                    >
+                      <span className="truncate">{screen.label}</span>
+                      <span className={`text-[10px] ${isActive ? 'text-rose-400 dark:text-rose-600' : 'text-slate-400'}`}>
+                        0{idx + 1}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </ZoomFade>
           </div>
 
           {/* Right Column: Screen Frame Constrained to the Right */}
           <div className="lg:col-span-8">
-            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden transition-all duration-300">
+            <ZoomFade fadeType="zoom-fade-blur" delay={0.15} duration={0.8}>
+              <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden transition-all duration-300">
               {/* Top Screen System Bar */}
               <div className="px-6 py-3.5 bg-slate-100/90 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between font-mono text-xs">
                 <div className="flex items-center gap-3">
@@ -500,9 +513,10 @@ export const ExecutiveScreensSection: React.FC<ExecutiveScreensSectionProps> = (
             </button>
           </div>
         </div>
-      </div>
+      </ZoomFade>
     </div>
   </div>
+</div>
 </section>
   );
 };

@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-white/85 dark:bg-slate-950/85 border-b border-slate-200 dark:border-slate-800 transition-colors duration-200">
+    <header className="sticky top-0 z-40 backdrop-blur-md bg-[#ebe8e2]/80 dark:bg-slate-950/60 border-b border-[#dad6cd]/90 dark:border-slate-800/70 text-slate-900 dark:text-slate-100 transition-all duration-300 shadow-2xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Monogram & Brand Identity: Strictly DataArtisan with NO subscript */}
         <a
@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <div className="w-8 h-8 rounded-full border border-rose-500/40 bg-rose-500/10 dark:bg-rose-500/20 flex items-center justify-center font-display text-xs font-bold text-rose-600 dark:text-rose-400 group-hover:scale-105 transition-transform shadow-2xs">
+          <div className="w-8 h-8 rounded-full border border-rose-500/40 bg-rose-500/10 flex items-center justify-center font-display text-xs font-bold text-rose-600 group-hover:scale-105 transition-transform shadow-2xs">
             DA
           </div>
           <span className="font-display font-extrabold text-base tracking-tight text-slate-950 dark:text-white">
@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
         </a>
 
         {/* Desktop Nav Items numbered 01 to 05 */}
-        <nav className="hidden lg:flex items-center gap-6 font-mono text-[11px] tracking-wider text-slate-600 dark:text-slate-300">
+        <nav className="hidden lg:flex items-center gap-6 font-mono text-[11px] tracking-wider text-slate-700 dark:text-slate-300">
           {navLinks.map((item) => (
             <button
               key={item.label}
@@ -71,14 +71,14 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Theme Switcher Toggle */}
           <button
             onClick={onToggleTheme}
-            className="p-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
+            className="p-2 rounded-full border border-[#dad6cd] dark:border-slate-800 bg-[#dedbd4]/80 dark:bg-slate-900/60 hover:bg-[#d5d1ca] dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-all cursor-pointer"
             title={theme === 'light-slate' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
             aria-label="Toggle Theme"
           >
             {theme === 'light-slate' ? (
               <Moon className="w-4 h-4" />
             ) : (
-              <Sun className="w-4 h-4 text-amber-400" />
+              <Sun className="w-4 h-4 text-amber-500" />
             )}
           </button>
 
@@ -94,7 +94,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
+            className="lg:hidden p-2 rounded-lg border border-[#dad6cd] dark:border-slate-800 bg-[#dedbd4]/80 dark:bg-slate-900/60 text-slate-800 dark:text-slate-200 transition-all"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -104,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md px-4 pt-3 pb-5 space-y-2">
+        <div className="lg:hidden border-t border-[#dad6cd] dark:border-slate-800 bg-[#ebe8e2]/90 dark:bg-slate-950/80 backdrop-blur-md px-4 pt-3 pb-5 space-y-2">
           {navLinks.map((item) => (
             <button
               key={item.label}

@@ -62,7 +62,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200 relative selection:bg-rose-500/20 selection:text-rose-700">
+    <div className="min-h-screen bg-[#ebe8e2] dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 relative selection:bg-rose-500/20 selection:text-rose-700">
       {/* High-Performance WebGL Shader Interactive Particle Canvas Background */}
       <AmbientBackground theme={theme} />
 

@@ -17,7 +17,7 @@ export const KeynotesSection: React.FC<KeynotesSectionProps> = ({ onOpenInquiry 
   return (
     <section
       id="keynotes"
-      className="py-20 lg:py-28 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xs border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200"
+      className="py-20 lg:py-28 bg-white/20 dark:bg-slate-950/30 backdrop-blur-2xs border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
